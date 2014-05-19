@@ -7,7 +7,7 @@ from kaleo.models import JoinInvitation
 
 
 class InviteForm(forms.Form):
-    email_address = forms.EmailField()
+    email_address = forms.EmailField(label=_("Email"),)
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user")
