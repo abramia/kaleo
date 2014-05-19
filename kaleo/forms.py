@@ -16,7 +16,7 @@ class InviteForm(forms.Form):
     def clean_email_address(self):
         email = self.cleaned_data["email_address"]
         if EmailAddress.objects.filter(email=email, verified=True).exists():
-            raise forms.ValidationError(_("Email déjà en vigueur!"))
+            raise forms.ValidationError(_("Email deja en vigueur!"))
         elif JoinInvitation.objects.filter(from_user=self.user, signup_code__email=email).exists():
-            raise forms.ValidationError(_("Vous avez déjà invité cet ami!"))
+            raise forms.ValidationError(_("Vous avez deja invite cet ami!"))
         return email
